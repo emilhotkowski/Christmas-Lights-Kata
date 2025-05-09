@@ -33,7 +33,7 @@ class LightsGridTest {
         lightsGrid.turnOnLights(rectangleWithLights2);
 
         assertThat(lightsGrid.getLights(new Rectangle(0, 0, 2, 2)))
-                .isEqualTo(7);
+                .isEqualTo(8);
     }
 
     @Test
@@ -44,7 +44,7 @@ class LightsGridTest {
         lightsGrid.toggleLights(rectangleWithLights);
 
         assertThat(lightsGrid.getLights(new Rectangle(0, 0, 2, 2)))
-                .isEqualTo(4);
+                .isEqualTo(8);
     }
 
     @Test
@@ -57,7 +57,7 @@ class LightsGridTest {
         lightsGrid.toggleLights(rectangleWithLights2);
 
         assertThat(lightsGrid.getLights(new Rectangle(0, 0, 2, 2)))
-                .isEqualTo(3);
+                .isEqualTo(6);
     }
 
     @Test
