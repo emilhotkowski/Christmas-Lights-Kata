@@ -17,6 +17,10 @@ public class LightsGrid {
         operations.add(new Operation(rectangle, Operation.OperationType.TURN_ON));
     }
 
+    public void toggleLights(Rectangle rectangle) {
+        operations.add(new Operation(rectangle, Operation.OperationType.TOGGLE));
+    }
+
     public int getLights(Rectangle rectangle) {
         // Slow implementation of toggling manually all lights in the rectangle
         int total = 0;
@@ -31,11 +35,16 @@ public class LightsGrid {
     }
 
     private boolean isLightOn(int x, int y) {
+        boolean state = false;
         for (Operation operation : operations) {
             if (operation.getRectangle().contains(x, y)) {
-                return operation.getOperationType() == Operation.OperationType.TURN_ON;
+                if (operation.getOperationType() == Operation.OperationType.TURN_ON) {
+                    state = true;
+                } else if (operation.getOperationType() == Operation.OperationType.TOGGLE) {
+                    state = !state;
+                }
             }
         }
-        return false;
+        return state;
     }
 }

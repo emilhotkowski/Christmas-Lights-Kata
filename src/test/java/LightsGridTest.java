@@ -34,4 +34,15 @@ class LightsGridTest {
         assertThat(lightsGrid.getLights(new Rectangle(0, 0, 2, 2)))
                 .isEqualTo(7);
     }
+
+    @Test
+    void should_toggle_on_lights_in_rectangle() {
+        LightsGrid lightsGrid = new LightsGrid(3, 3);
+
+        Rectangle rectangleWithLights = new Rectangle(0, 0, 1, 1);
+        lightsGrid.toggleLights(rectangleWithLights);
+
+        assertThat(lightsGrid.getLights(new Rectangle(0, 0, 2, 2)))
+                .isEqualTo(4);
+    }
 }
