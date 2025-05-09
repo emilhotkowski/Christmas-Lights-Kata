@@ -6,8 +6,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 class LightsGridTest {
 
     /**
-     * Missing behaviour from part 1:
+     * New behaviour for part 2:
      * - Turn Off means dimming the lights in the rectangle.
+     * - Turn On means turning on the lights in the rectangle.
+     * - Toggle means toggling the lights in the rectangle.
+     * - Get Lights means getting the number of lights in the rectangle.
      */
     @Test
     void should_turn_on_lights_in_rectangle() {
