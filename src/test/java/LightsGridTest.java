@@ -5,6 +5,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class LightsGridTest {
 
+    /**
+     * Behaviour for part 2:
+     * - Turn On means add 1 brightness to the lights in the rectangle
+     * - Turn Off means remove 1 brightness to the lights in the rectangle
+     * - Toggle means add 2 brightness to the lights in the rectangle
+     * - Get Lights means sum the brightness of the lights in the rectangle
+     */
     @Test
     void should_turn_on_lights_in_rectangle() {
         LightsGrid lightsGrid = new LightsGrid(3, 3);
