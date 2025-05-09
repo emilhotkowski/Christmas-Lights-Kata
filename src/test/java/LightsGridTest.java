@@ -12,16 +12,13 @@ class LightsGridTest {
      * - Ability to get the number of turned on lights in a rectangle (or whole grid)
      */
     @Test
-    void fail() {
-        Thing thing = new Thing();
-        String value = thing.callForAction();
-        assertThat(value)
-                .isEqualTo("Food");
-    }
+    void should_turn_on_lights_in_rectangle() {
+        LightsGrid lightsGrid = new LightsGrid(3, 3);
 
-    @Test
-    void it_should_not_fail() {
-        assertThat(42)
-                .isEqualTo(42);
+        Rectangle rectangleWithLights = new Rectangle(0, 0, 1, 1);
+        lightsGrid.turnOnLights(rectangleWithLights);
+
+        assertThat(lightsGrid.getLights(new Rectangle(0, 0, 2, 2)))
+                .isEqualTo(4);
     }
 }
