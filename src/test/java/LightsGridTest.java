@@ -6,11 +6,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 class LightsGridTest {
 
     /**
-     * Behaviour for part 2:
-     * - Turn On means add 1 brightness to the lights in the rectangle
-     * - Turn Off means remove 1 brightness to the lights in the rectangle
-     * - Toggle means add 2 brightness to the lights in the rectangle
-     * - Get Lights means sum the brightness of the lights in the rectangle
+     * Missing behaviour from part 1:
+     * - Turn Off means dimming the lights in the rectangle.
      */
     @Test
     void should_turn_on_lights_in_rectangle() {
@@ -55,6 +52,19 @@ class LightsGridTest {
         lightsGrid.turnOnLights(rectangleWithLights);
         Rectangle rectangleWithLights2 = new Rectangle(0, 0, 0, 0);
         lightsGrid.toggleLights(rectangleWithLights2);
+
+        assertThat(lightsGrid.getLights(new Rectangle(0, 0, 2, 2)))
+                .isEqualTo(3);
+    }
+
+    @Test
+    void should_turn_off_some_lights_in_rectangle() {
+        LightsGrid lightsGrid = new LightsGrid(3, 3);
+
+        Rectangle rectangleWithLights = new Rectangle(0, 0, 1, 1);
+        lightsGrid.turnOnLights(rectangleWithLights);
+        Rectangle rectangleWithLights2 = new Rectangle(0, 0, 0, 0);
+        lightsGrid.turnOffLights(rectangleWithLights2);
 
         assertThat(lightsGrid.getLights(new Rectangle(0, 0, 2, 2)))
                 .isEqualTo(3);

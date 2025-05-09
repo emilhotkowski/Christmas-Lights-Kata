@@ -10,6 +10,7 @@ public class Operation {
 
     public enum OperationType {
         TURN_ON,
+        TURN_OFF,
         TOGGLE
     }
 
