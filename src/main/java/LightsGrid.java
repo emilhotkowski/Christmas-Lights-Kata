@@ -30,24 +30,22 @@ public class LightsGrid {
         int total = 0;
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                if (isLightOn(x, y)) {
-                    total++;
-                }
+                total += lightState(x, y);
             }
         }
         return total;
     }
 
-    private boolean isLightOn(int x, int y) {
-        boolean state = false;
+    private int lightState(int x, int y) {
+        int state = 0;
         for (Operation operation : operations) {
             if (operation.getRectangle().contains(x, y)) {
                 if (operation.getOperationType() == Operation.OperationType.TURN_ON) {
-                    state = true;
+                    state += 1;
                 } else if (operation.getOperationType() == Operation.OperationType.TOGGLE) {
-                    state = !state;
+                    state += 2;
                 } else if (operation.getOperationType() == Operation.OperationType.TURN_OFF) {
-                    state = false;
+                    state = Math.max(0, state - 1);
                 }
             }
         }
